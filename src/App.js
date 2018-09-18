@@ -21,7 +21,7 @@ const particleOptions ={
                     }
 
                   }
-                 
+
                 }
               };
 
@@ -93,22 +93,22 @@ class App extends Component {
   }
  onButtonSubmit = ()=>{
  this.setState({imageURL : this.state.input})
-fetch('https://bagged-drake-53644.herokuapp.com/imageUrl',{
+fetch('https://obscure-cove-99791.herokuapp.com/imageUrl',{
         method: 'post',
         headers:{ 'Content-type':'application/json'},
         body:JSON.stringify({
           input:this.state.input,
-          
+
   })
       }).then(response=>response.json())
     .then(response=> {
 if(response){
-  fetch('https://bagged-drake-53644.herokuapp.com/image',{
+  fetch('https://obscure-cove-99791.herokuapp.com/image',{
         method: 'put',
         headers:{ 'Content-type':'application/json'},
         body:JSON.stringify({
           id:this.state.user.id,
-          
+
   })
 }).then(response=>response.json())
   .then(count=>{
@@ -125,15 +125,15 @@ if(response){
     return (
       <div className="App">
 
-           <Particles className="particles" 
+           <Particles className="particles"
               params={particleOptions}/>
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange} />
-        { route=== 'home'  
+        { route=== 'home'
            ?  <div>
             <Logo />
             <Rank name={this.state.user.name} entries={this.state.user.entries}/>
-            <ImageLinkForm  
-                 onInputChange={this.onInputChange} 
+            <ImageLinkForm
+                 onInputChange={this.onInputChange}
                  onButtonSubmit={this.onButtonSubmit}
                  />
             <FaceRecog box={box} imageURL={imageURL}/>
@@ -142,11 +142,11 @@ if(response){
             ? <Signin loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
             :<Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
             )
-           
-           
+
+
       }
 
-   
+
       </div>
     );
   }
