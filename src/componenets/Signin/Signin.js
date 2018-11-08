@@ -75,7 +75,7 @@ class Signin extends React.Component {
 					      <p onClick={()=>onRouteChange('register')} className="f6 link dim black db pointer">Register</p>
 					    </div>
 					  </div>
-            <h1>you can use the following email address and password to sign in</h1>
+            <p>you can use the following email address and password to sign in</p>
             <p>Email:user123@gmail.com</p>
             <p>Password:user123</p>
 					</main>
